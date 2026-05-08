@@ -6,6 +6,7 @@ class TrackBase(BaseModel):
     length: int = Field(..., gt=0)
     bending: int = Field(..., ge=0)
     elevation: int
+    route_order: Optional[int] = Field(default=None, ge=0)
 
 class TrackCreate(TrackBase):
     pass

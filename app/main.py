@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .api import auth, trains, lines, tracks
+from .api import auth, trains, lines, tracks, simulation
 from .database.connection import connect_to_mongo, close_mongo_connection
 from .core.config import settings
 
@@ -26,6 +26,8 @@ app.include_router(auth.router, prefix="/api")
 app.include_router(trains.router, prefix="/api")
 app.include_router(lines.router, prefix="/api")
 app.include_router(tracks.router, prefix="/api")
+app.include_router(simulation.router, prefix="/api")
+app.include_router(simulation.router)
 
 @app.get("/")
 async def root():
